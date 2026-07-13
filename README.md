@@ -1,27 +1,51 @@
-# Ramkumar.github.io
+# Portfolio — Ramkumar R
 
-Personal portfolio website — built with HTML, CSS, and vanilla JS.
+> AI & Data Science Graduate · MIT Anna University · Available Immediately
 
-Live at: https://ramkumar64.github.io
+**Live:** https://ramkumar64.github.io
 
-## About
+---
 
-Portfolio of Ramkumar R — 2026 B.Tech graduate in AI and Data Science 
-from Madras Institute of Technology, Anna University.
+## Who I am
 
-Built with clean HTML and CSS. No frameworks. No build tools. Just ships.
+2026 B.Tech graduate in Artificial Intelligence and Data Science from 
+Madras Institute of Technology, Anna University, Chennai.
 
-## Sections
+I build LLM pipelines, distributed systems, and computer vision 
+applications — things that work in production, not just notebooks.
 
-- Hero — availability status and quick links
-- About — background and internship metrics
-- Skills — full technical stack
-- Projects — Unipay, Crowd Surge, Video Captioning, Glaucoma Thesis, Chess Engine
-- Experience — EDGEMATRIX internship and education
-- Certifications — NVIDIA DLI and Infosys Springboard
-- Contact — all links in one place
+Completed an AI/ML engineering internship at EDGEMATRIX Inc. where I 
+reduced inference latency by 20% and cut pipeline prep time by 40%.
+
+NVIDIA DLI certified. Immediately available for SWE, AI/ML, and 
+full-stack roles.
+
+---
+
+## Projects
+
+| Project | Stack | What it does |
+|---|---|---|
+| **Unipay** | TypeScript, PostgreSQL, Node.js | Distributed multi-currency payment system with ACID transactions and row-level locking |
+| **Crowd Surge** | Python, YOLOv8, SWIN Transformer, Bi-LSTM | Real-time crowd risk prediction with autonomous alerting |
+| **Video Captioning** | PyTorch, ViT, GPT Decoder, Claude API | LLM pipeline with GAN adversarial evaluation harness |
+| **Glaucoma Prediction** | EfficientNet-B0, Grad-CAM | B.Tech thesis — medical imaging with interpretability |
+| **Chess Engine** | Python, Java, C++ | Minimax + Alpha-Beta pruning with voice I/O |
+
+---
+
+## Stack
+
+Python · TypeScript · Java · C++ · React · Node.js · PostgreSQL · 
+MongoDB · PyTorch · TensorFlow · Docker · Git
+
+---
 
 ## Contact
 
-- Email: ramaravind21135@gmail.com
-- LinkedIn: linkedin.com/in/ram-kumar-r-01951636a
+| | |
+|---|---|
+| Email | ramaravind21135@gmail.com |
+| LinkedIn | linkedin.com/in/ram-kumar-r-01951636a |
+| GitHub | github.com/Ramkumar64 |
+| Location | Chennai · Open to Bangalore, Hyderabad, Remote |
