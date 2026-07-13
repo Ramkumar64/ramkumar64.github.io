@@ -1,4 +1,4 @@
-# ramkumar64.github.io
+# Ramkumar.github.io
 
 Personal portfolio website — built with HTML, CSS, and vanilla JS.
 
