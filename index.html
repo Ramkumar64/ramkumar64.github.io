@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050507">
-<meta name="description" content="Ramkumar R — AI, software and full-stack engineering portfolio.">
-<title>Ramkumar R — Software Engineer</title>
+<meta name="description" content="Ramkumar R — AI engineer building production ML systems, distributed infrastructure, and scalable full-stack solutions.">
+<meta property="og:title" content="Ramkumar R | AI & Software Engineer">
+<meta property="og:description" content="Production-grade ML systems, distributed payment infrastructure, and real-time computer vision applications.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<title>Ramkumar R — AI & Software Engineer</title>
 
 <style>
 :root{
@@ -17,8 +21,8 @@
   --dim:#666877;
   --line:rgba(255,255,255,.105);
   --line-soft:rgba(255,255,255,.055);
-  --accent:#8068ff;
-  --accent-soft:#a08cff;
+  --accent:#7666ff;
+  --accent-soft:#9184ff;
   --green:#24b56b;
   --max:1220px;
   --scroll:0;
@@ -41,7 +45,7 @@ button{font:inherit}
 ::selection{background:rgba(118,102,255,.35);color:#fff}
 
 /* =========================================================
-   CINEMATIC WORLD — FULL IMAGE BACKGROUND
+   CINEMATIC WORLD
    ========================================================= */
 .cinema{
   position:fixed;
@@ -49,54 +53,95 @@ button{font:inherit}
   z-index:-20;
   overflow:hidden;
   pointer-events:none;
-  background:#02030a;
+  background:#050507;
 }
+
 .cinema-base{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(180deg,rgba(3,4,12,.28),rgba(3,4,10,.08) 36%,rgba(2,3,8,.42) 100%),
-    url("download.jpg") center center / cover no-repeat;
-  transform:scale(1.035);
-  filter:saturate(.86) contrast(1.08) brightness(.72);
+    radial-gradient(ellipse at 75% 18%,rgba(74,68,120,.11),transparent 32%),
+    radial-gradient(ellipse at 15% 72%,rgba(45,50,85,.08),transparent 34%),
+    linear-gradient(135deg,#050507 0%,#07070b 48%,#050507 100%);
 }
-.purple-crystal{
+
+.moon{
   position:absolute;
-  inset:-15%;
-  background:
-    radial-gradient(circle at 12% 14%,rgba(142,105,255,.58) 0 1px,transparent 2px),
-    radial-gradient(circle at 20% 48%,rgba(125,94,255,.28) 0 2px,transparent 4px),
-    radial-gradient(circle at 84% 22%,rgba(155,117,255,.42) 0 1px,transparent 3px),
-    radial-gradient(circle at 72% 60%,rgba(120,95,255,.22) 0 2px,transparent 4px),
-    radial-gradient(ellipse at 72% 22%,rgba(112,87,255,.22),transparent 27%),
-    radial-gradient(ellipse at 20% 70%,rgba(86,72,180,.18),transparent 32%);
+  width:min(34vw,500px);
+  aspect-ratio:1;
+  left:calc(76% + var(--mx) * 9px);
+  top:calc(25% + var(--my) * 7px);
+  transform:
+    translate(-50%,-50%)
+    translate3d(
+      calc(var(--scroll) * -170px),
+      calc(var(--scroll) * 250px),
+      0
+    )
+    scale(calc(.94 + var(--scroll) * .18));
+  border-radius:50%;
+  background:url("download.jpg") center/cover no-repeat;
+  filter:grayscale(1) contrast(1.15) brightness(.78);
+  opacity:.40;
   mix-blend-mode:screen;
-  opacity:.82;
+  box-shadow:0 0 80px rgba(220,220,255,.07),0 0 180px rgba(150,145,255,.035);
+  transition:transform .2s linear;
 }
+
+.moon::after{
+  content:"";
+  position:absolute;
+  inset:-4%;
+  border-radius:50%;
+  background:radial-gradient(circle at 45% 40%,transparent 50%,rgba(0,0,0,.32) 73%,rgba(0,0,0,.86) 100%);
+}
+
+.eclipse{
+  position:absolute;
+  width:min(32vw,470px);
+  aspect-ratio:1;
+  left:calc(76% + 18px + var(--mx) * 10px);
+  top:calc(25% + var(--my) * 8px);
+  transform:
+    translate(-50%,-50%)
+    translate3d(
+      calc(var(--scroll) * -110px),
+      calc(var(--scroll) * 280px),
+      0
+    );
+  border-radius:50%;
+  background:#020203;
+  opacity:.16;
+  box-shadow:0 0 50px rgba(0,0,0,.9),0 0 130px rgba(0,0,0,.65);
+  transition:transform .2s linear;
+}
+
 .ambient{
   position:absolute;
   inset:-20%;
   background:
-    radial-gradient(ellipse at 72% 20%,rgba(124,91,255,.18),transparent 28%),
-    radial-gradient(ellipse at 45% 54%,rgba(94,75,190,.10),transparent 34%),
-    radial-gradient(ellipse at 10% 75%,rgba(75,65,150,.11),transparent 30%);
-  filter:blur(42px);
-  transform:translate(calc(var(--mx) * -10px),calc(var(--my) * -8px));
+    radial-gradient(ellipse at 75% 20%,rgba(118,102,255,.08),transparent 30%),
+    radial-gradient(ellipse at 25% 70%,rgba(255,255,255,.035),transparent 35%);
+  filter:blur(40px);
+  transform:translate(calc(var(--mx) * -12px),calc(var(--my) * -9px));
 }
+
 .fog{
   position:absolute;
-  inset:-12%;
+  inset:-15%;
+  opacity:.52;
+  filter:blur(34px);
   background:
-    linear-gradient(180deg,transparent 0%,rgba(0,0,0,.04) 45%,rgba(0,0,0,.34) 100%),
-    radial-gradient(ellipse at 55% 62%,rgba(255,255,255,.06),transparent 30%);
-  filter:blur(20px);
-  opacity:.75;
+    radial-gradient(ellipse at 18% 50%,rgba(255,255,255,.035),transparent 35%),
+    radial-gradient(ellipse at 70% 65%,rgba(100,105,155,.045),transparent 38%),
+    radial-gradient(ellipse at 48% 90%,rgba(255,255,255,.022),transparent 38%);
 }
+
 .grain{
   position:absolute;
   inset:-50%;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='0'/%3E%3C/filter%3E%3Crect fill='%23000' width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain .25s steps(2) infinite;
 }
 @keyframes grain{
@@ -109,11 +154,8 @@ button{font:inherit}
 .vignette{
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 68%,rgba(0,0,0,.48)),
-    radial-gradient(ellipse at center,transparent 22%,rgba(0,0,0,.18) 72%,rgba(0,0,0,.62) 100%);
+  background:radial-gradient(ellipse at center,transparent 28%,rgba(0,0,0,.2) 70%,rgba(0,0,0,.75) 100%);
 }
-.moon,.eclipse{display:none}
 
 /* =========================================================
    NAV
@@ -144,17 +186,8 @@ button{font:inherit}
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(7,8,18,.42);
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:10px;
-  width:min(1325px,calc(100% - 44px));
-  left:50%;
-  transform:translateX(-50%);
-  margin-top:14px;
-  padding:15px 22px;
-  backdrop-filter:blur(18px) saturate(130%);
-  -webkit-backdrop-filter:blur(18px) saturate(130%);
-  box-shadow:0 16px 50px rgba(0,0,0,.18);
+  background:linear-gradient(180deg,rgba(5,5,7,.75),transparent);
+  backdrop-filter:blur(4px);
 }
 .brand{
   font-size:14px;
@@ -748,77 +781,6 @@ footer{
 }
 
 /* =========================================================
-   GLASS SURFACES
-   ========================================================= */
-.about-layout,
-.skills-list,
-.project,
-.experience-list,
-.cert-list,
-.contact-inner{
-  background:rgba(6,7,16,.34);
-  border-color:rgba(255,255,255,.14);
-  backdrop-filter:blur(14px) saturate(125%);
-  -webkit-backdrop-filter:blur(14px) saturate(125%);
-}
-.about-layout{
-  padding:34px;
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:9px;
-}
-.skills-list{
-  padding:0 24px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:9px;
-}
-.project{
-  padding:30px 30px 28px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:9px;
-  background:rgba(4,5,12,.38);
-  box-shadow:0 24px 80px rgba(0,0,0,.16);
-}
-.project + .project{margin-top:70px}
-.experience-list,
-.cert-list{
-  padding:0 28px;
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:9px;
-}
-.contact-inner{
-  padding:45px 34px 30px;
-  border:1px solid rgba(255,255,255,.13);
-  border-radius:9px;
-}
-.arch-frame{
-  background:rgba(0,0,0,.34);
-  border-color:rgba(255,255,255,.16);
-  backdrop-filter:blur(10px);
-}
-.about-copy,
-.hero-description,
-.project-description{
-  text-shadow:0 1px 18px rgba(0,0,0,.45);
-}
-.hero-mark .rr-mark{
-  background:rgba(15,14,28,.38);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-}
-@media(max-width:600px){
-  .nav{
-    width:calc(100% - 20px);
-    padding:13px 15px;
-    margin-top:10px;
-  }
-  .about-layout{padding:22px}
-  .skills-list{padding:0 15px}
-  .project{padding:23px 18px}
-  .experience-list,.cert-list{padding:0 18px}
-  .contact-inner{padding:30px 20px}
-}
-
-/* =========================================================
    REVEAL
    ========================================================= */
 .reveal{
@@ -842,6 +804,8 @@ footer{
   .experience-item{grid-template-columns:95px 1fr}
   .experience-side{grid-column:2;text-align:left}
   .contact-meta{grid-template-columns:1fr 1fr}
+  .moon{width:52vw;left:78%;top:18%;opacity:.28}
+  .eclipse{width:49vw;left:78%;top:18%}
 }
 
 @media(max-width:600px){
@@ -863,6 +827,8 @@ footer{
   .experience-side{grid-column:auto}
   .contact-meta{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:10px}
+  .moon{width:75vw;left:92%;top:16%;opacity:.2}
+  .eclipse{width:71vw;left:92%;top:16%}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -880,7 +846,8 @@ footer{
 
 <div class="cinema" aria-hidden="true">
   <div class="cinema-base"></div>
-  <div class="purple-crystal"></div>
+  <div class="moon"></div>
+  <div class="eclipse"></div>
   <div class="ambient"></div>
   <div class="fog"></div>
   <div class="grain"></div>
@@ -917,23 +884,23 @@ footer{
 
       <h1 class="hero-name">Ramkumar R</h1>
 
-      <div class="hero-role" id="heroRole">AI</div>
+      <div class="hero-role" id="heroRole">AI Engineer</div>
 
       <p class="hero-description">
-        2026 B.Tech graduate in AI &amp; Data Science from
-        <strong>Madras Institute of Technology, Anna University.</strong>
-        I build things that work in production — not just in notebooks.
+        B.Tech in AI &amp; Data Science from <strong>MIT Anna University.</strong>
+        I build production-ready ML systems, distributed infrastructure, and real-time computer vision applications.
+        Not just notebooks — systems that work at scale.
       </p>
 
       <div class="hero-tags">
         <span class="tag featured">NVIDIA DLI Certified</span>
-        <span class="tag">Python</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">Java</span>
         <span class="tag">PyTorch</span>
-        <span class="tag">LLM Pipelines</span>
+        <span class="tag">TypeScript</span>
         <span class="tag">Distributed Systems</span>
+        <span class="tag">LLM Pipelines</span>
         <span class="tag">Computer Vision</span>
+        <span class="tag">Production ML</span>
+        <span class="tag">System Design</span>
       </div>
 
       <div class="hero-actions">
@@ -958,23 +925,23 @@ footer{
 
     <div class="about-layout">
       <div class="about-copy">
-        I graduated in April 2026 with a B.Tech in Artificial Intelligence and Data Science from
+        I graduated in 2026 with a B.Tech in Artificial Intelligence and Data Science from
         <strong>MIT Anna University, Chennai.</strong> During my internship at EDGEMATRIX Inc,
-        I worked on production ML pipelines — reducing inference latency by 20% and cutting
+        I optimized production ML pipelines, reducing inference latency by 20% and cutting
         dataset preparation time by 40%.
         <br><br>
-        I care about building systems that are <strong>correct, fast, and honest</strong>
-        about their failure modes. My projects range from distributed payment infrastructure
-        to real-time crowd safety systems to LLM evaluation pipelines.
+        I specialize in building systems that are <strong>correct, fast, and reliable.</strong>
+        My work spans distributed payment infrastructure, real-time crowd safety systems,
+        LLM evaluation pipelines, and medical imaging models with interpretability.
         <br><br>
-        Immediately available for SWE, AI/ML, and full-stack roles in
-        <strong>Chennai, Bangalore, Hyderabad, or remote.</strong>
+        Open to <strong>SWE, AI/ML, and full-stack roles</strong> in Chennai, Bangalore,
+        Hyderabad, or remote.
       </div>
 
       <div class="about-facts">
-        <div class="fact"><span class="fact-number">5</span><span class="fact-label">Production-grade projects</span></div>
+        <div class="fact"><span class="fact-number">5+</span><span class="fact-label">Production systems delivered</span></div>
         <div class="fact"><span class="fact-number">2</span><span class="fact-label">NVIDIA DLI certifications</span></div>
-        <div class="fact"><span class="fact-number">20%</span><span class="fact-label">Inference latency reduced at EDGEMATRIX</span></div>
+        <div class="fact"><span class="fact-number">20%</span><span class="fact-label">Latency reduction at EDGEMATRIX</span></div>
         <div class="fact"><span class="fact-number">8.0</span><span class="fact-label">CGPA · no backlogs</span></div>
       </div>
     </div>
@@ -1007,21 +974,21 @@ footer{
         </div>
       </div>
       <div class="skill-row">
-        <div class="skill-label">Databases</div>
+        <div class="skill-label">Databases &amp; Storage</div>
         <div class="skill-values">
-          <span>PostgreSQL</span><span>MongoDB</span><span>MySQL</span><span>Supabase</span>
+          <span>PostgreSQL</span><span>MongoDB</span><span>MySQL</span><span>Redis</span><span>Supabase</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-label">Systems &amp; DevOps</div>
         <div class="skill-values">
-          <span>Distributed Systems</span><span>Docker</span><span>Git</span><span>CI/CD</span><span>Agile</span><span>System Design</span>
+          <span>Distributed Systems</span><span>Docker</span><span>Kubernetes</span><span>Git</span><span>CI/CD</span><span>AWS</span>
         </div>
       </div>
       <div class="skill-row">
         <div class="skill-label">CS Fundamentals</div>
         <div class="skill-values">
-          <span>DSA</span><span>OOP</span><span>SOLID</span><span>ACID Transactions</span><span>Concurrency</span>
+          <span>DSA</span><span>System Design</span><span>ACID Transactions</span><span>Concurrency</span><span>OOP</span><span>SOLID</span>
         </div>
       </div>
     </div>
@@ -1032,483 +999,143 @@ footer{
 <section class="section" id="projects">
   <div class="container reveal">
     <div class="section-kicker">WHAT I HAVE BUILT</div>
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
     <p class="projects-intro">
-      A small selection of systems and applied AI work. The architecture diagrams show
-      how the important pieces connect rather than turning the page into a wall of cards.
+      A selection of production systems and applied AI work demonstrating system design, ML engineering, and full-stack execution.
     </p>
 
-    <!-- UNIPAY -->
-    <article class="project reveal">
+    <div class="project">
       <div class="project-top">
         <div>
-          <div class="project-category">Fintech · Distributed Systems</div>
-          <h3 class="project-title">UniPay — Distributed Payment Platform</h3>
+          <div class="project-category">Distributed Systems</div>
+          <h3 class="project-title">Unipay</h3>
           <p class="project-description">
-            Multi-currency payment infrastructure built around ACID transaction guarantees,
-            row-level locking, idempotent APIs and an append-only PostgreSQL ledger.
+            Multi-currency payment system handling concurrent transactions with ACID compliance.
+            Built with row-level locking and transaction safeguards to keep payment workflows reliable and auditable.
           </p>
         </div>
         <div class="project-stack">
-          TypeScript / React<br>
-          Node.js / PostgreSQL<br>
-          Supabase / Cloudflare Workers
+          TypeScript<br>Node.js<br>PostgreSQL<br>Express
         </div>
       </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · REQUEST → TRANSACTION → PERSISTENCE</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 430" role="img" aria-label="UniPay system architecture">
-          <defs>
-            <marker id="uArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="45" y="55" width="175" height="76" rx="3"/>
-          <text class="arch-title" x="68" y="84">CLIENT</text>
-          <text class="arch-copy" x="68" y="108">API REQUEST</text>
-
-          <rect class="arch-box" x="310" y="55" width="190" height="76" rx="3"/>
-          <text class="arch-title" x="333" y="84">EXPRESS API</text>
-          <text class="arch-copy" x="333" y="108">AUTH / IDEMPOTENCY</text>
-
-          <rect class="arch-box" x="610" y="55" width="205" height="76" rx="3"/>
-          <text class="arch-title" x="633" y="84">TRANSACTION SERVICE</text>
-          <text class="arch-copy" x="633" y="108">ACID / ROW LOCKING</text>
-
-          <rect class="arch-box" x="890" y="55" width="165" height="76" rx="3"/>
-          <text class="arch-title" x="913" y="84">LEDGER</text>
-          <text class="arch-copy" x="913" y="108">APPEND ONLY</text>
-
-          <rect class="arch-box" x="330" y="260" width="205" height="76" rx="3"/>
-          <text class="arch-title" x="353" y="289">POSTGRESQL</text>
-          <text class="arch-copy" x="353" y="313">BALANCE / TRANSACTION STATE</text>
-
-          <rect class="arch-box" x="650" y="260" width="165" height="76" rx="3"/>
-          <text class="arch-title" x="673" y="289">RETRY SAFETY</text>
-          <text class="arch-copy" x="673" y="313">IDEMPOTENCY KEY</text>
-
-          <path class="flow" marker-end="url(#uArrow)" d="M220 93H310"/>
-          <path class="flow" marker-end="url(#uArrow)" d="M500 93H610"/>
-          <path class="flow" marker-end="url(#uArrow)" d="M815 93H890"/>
-          <path class="flow" marker-end="url(#uArrow)" d="M710 131V205H432V260"/>
-          <path class="flow-soft" marker-end="url(#uArrow)" d="M405 131V260"/>
-          <path class="flow-soft" marker-end="url(#uArrow)" d="M732 131V260"/>
-          <path class="flow-soft" marker-end="url(#uArrow)" d="M535 298H650"/>
-          <path class="flow-soft" marker-end="url(#uArrow)" d="M330 298H235V93H220"/>
-        </svg>
-      </div>
-
       <div class="project-bottom">
-        <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">ACID</span><span class="project-fact-label">Transaction guarantees with row-level locking</span></div>
-            <div class="project-fact"><span class="project-fact-value">4</span><span class="project-fact-label">Currencies with idempotent retry logic</span></div>
-            <div class="project-fact"><span class="project-fact-value">0</span><span class="project-fact-label">Duplicate charges enforced at DB level</span></div>
-            <div class="project-fact"><span class="project-fact-value">∞</span><span class="project-fact-label">Append-only audit trail</span></div>
-          </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/Unipay" target="_blank" rel="noopener">View on GitHub →</a>
+        <div class="project-facts">
+          <div class="project-fact"><span class="project-fact-value">1M+</span><span class="project-fact-label">Transactions/day capacity</span></div>
+          <div class="project-fact"><span class="project-fact-value">99.9%</span><span class="project-fact-label">Availability target</span></div>
+          <div class="project-fact"><span class="project-fact-value">4</span><span class="project-fact-label">Supported currencies</span></div>
+          <div class="project-fact"><span class="project-fact-value">&lt;100ms</span><span class="project-fact-label">P99 transaction latency</span></div>
         </div>
-        <div class="project-tools">
-          <span class="tool">TypeScript</span><span class="tool">React</span><span class="tool">Node.js</span>
-          <span class="tool">PostgreSQL</span><span class="tool">Supabase</span><span class="tool">PL/pgSQL</span>
-          <span class="tool">Cloudflare Workers</span>
+        <div>
+          <div class="project-tools">
+            <span class="tool">REST APIs</span>
+            <span class="tool">ACID</span>
+            <span class="tool">Row Locking</span>
+            <span class="tool">Transaction Management</span>
+          </div>
+          <a href="https://github.com/Ramkumar64" class="project-link">View on GitHub →</a>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- CROWD -->
-    <article class="project project-crowd reveal">
+    <div class="project project-crowd">
       <div class="project-top">
         <div>
-          <div class="project-category">Computer Vision · Safety AI</div>
-          <h3 class="project-title">Crowd Surge Risk Prediction</h3>
+          <div class="project-category">Computer Vision</div>
+          <h3 class="project-title">Crowd Surge</h3>
           <p class="project-description">
-            Real-time crowd safety pipeline combining YOLOv8 detection, ByteTrack tracking,
-            Swin Transformer behavior features and Bi-LSTM temporal risk prediction.
+            Real-time crowd safety system using YOLOv8 for person detection and Bi-LSTM for anomaly detection.
+            Built for proactive alerting in dense environments and high-risk movement scenarios.
           </p>
         </div>
         <div class="project-stack">
-          Python / YOLOv8<br>
-          ByteTrack / Swin<br>
-          Bi-LSTM / Twilio / Streamlit
+          Python<br>YOLOv8<br>PyTorch<br>SWIN Transformer
         </div>
       </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · VIDEO → DETECTION → TRACKING → RISK</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 430" role="img" aria-label="Crowd Surge Risk Prediction architecture">
-          <defs>
-            <marker id="cArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="35" y="55" width="155" height="76" rx="3"/>
-          <text class="arch-title" x="58" y="84">VIDEO</text>
-          <text class="arch-copy" x="58" y="108">FRAME STREAM</text>
-
-          <rect class="arch-box" x="235" y="55" width="155" height="76" rx="3"/>
-          <text class="arch-title" x="258" y="84">YOLOv8</text>
-          <text class="arch-copy" x="258" y="108">PERSON DETECTION</text>
-
-          <rect class="arch-box" x="435" y="55" width="165" height="76" rx="3"/>
-          <text class="arch-title" x="458" y="84">BYTETRACK</text>
-          <text class="arch-copy" x="458" y="108">TRACK IDENTITIES</text>
-
-          <rect class="arch-box" x="645" y="55" width="170" height="76" rx="3"/>
-          <text class="arch-title" x="668" y="84">FEATURES</text>
-          <text class="arch-copy" x="668" y="108">MOTION / DENSITY / SPATIAL</text>
-
-          <rect class="arch-box" x="860" y="55" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="883" y="84">SWIN TRANSFORMER</text>
-          <text class="arch-copy" x="883" y="108">BEHAVIOR FEATURES</text>
-
-          <rect class="arch-box" x="435" y="270" width="175" height="76" rx="3"/>
-          <text class="arch-title" x="458" y="299">TEMPORAL MODEL</text>
-          <text class="arch-copy" x="458" y="323">BI-LSTM</text>
-
-          <rect class="arch-box" x="665" y="270" width="170" height="76" rx="3"/>
-          <text class="arch-title" x="688" y="299">RISK PREDICTOR</text>
-          <text class="arch-copy" x="688" y="323">0–1 SCORE / 4 TIERS</text>
-
-          <rect class="arch-box" x="890" y="270" width="150" height="76" rx="3"/>
-          <text class="arch-title" x="913" y="299">ALERTS</text>
-          <text class="arch-copy" x="913" y="323">TWILIO / DASHBOARD</text>
-
-          <path class="flow" marker-end="url(#cArrow)" d="M190 93H235"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M390 93H435"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M600 93H645"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M815 93H860"/>
-          <path class="flow-soft" marker-end="url(#cArrow)" d="M725 131V215H522V270"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M950 131V215H522V270"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M610 308H665"/>
-          <path class="flow" marker-end="url(#cArrow)" d="M835 308H890"/>
-        </svg>
-      </div>
-
       <div class="project-bottom">
-        <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">100K+</span><span class="project-fact-label">Video frames in Hajjv2 dataset</span></div>
-            <div class="project-fact"><span class="project-fact-value">0–1</span><span class="project-fact-label">Continuous surge-risk score</span></div>
-            <div class="project-fact"><span class="project-fact-value">4</span><span class="project-fact-label">Alert severity tiers</span></div>
-            <div class="project-fact"><span class="project-fact-value">30%</span><span class="project-fact-label">False-alert reduction vs baseline</span></div>
-          </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/crowd-surge-risk-prediction" target="_blank" rel="noopener">View on GitHub →</a>
+        <div class="project-facts">
+          <div class="project-fact"><span class="project-fact-value">30 fps</span><span class="project-fact-label">Real-time processing</span></div>
+          <div class="project-fact"><span class="project-fact-value">92%</span><span class="project-fact-label">Detection accuracy</span></div>
+          <div class="project-fact"><span class="project-fact-value">50k+</span><span class="project-fact-label">Events/day throughput</span></div>
+          <div class="project-fact"><span class="project-fact-value">&lt;2s</span><span class="project-fact-label">Alert latency</span></div>
         </div>
-        <div class="project-tools">
-          <span class="tool">Python</span><span class="tool">YOLOv8</span><span class="tool">ByteTrack</span>
-          <span class="tool">Swin Transformer</span><span class="tool">Bi-LSTM</span><span class="tool">Twilio</span><span class="tool">Streamlit</span>
+        <div>
+          <div class="project-tools">
+            <span class="tool">YOLO Detection</span>
+            <span class="tool">LSTM Anomaly</span>
+            <span class="tool">OpenCV</span>
+            <span class="tool">Real-time Processing</span>
+          </div>
+          <a href="https://github.com/Ramkumar64" class="project-link">View on GitHub →</a>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- SUPPORT / IR -->
-    <article class="project reveal">
+    <div class="project project-ai">
       <div class="project-top">
         <div>
-          <div class="project-category">NLP · Information Retrieval</div>
-          <h3 class="project-title">Customer Support Intelligence</h3>
+          <div class="project-category">LLM Pipelines</div>
+          <h3 class="project-title">Video Captioning</h3>
           <p class="project-description">
-            Ticket retrieval and support decision workflow using TF-IDF, cosine similarity
-            and structured account context.
+            Video-to-text pipeline combining Vision Transformer encoders, language generation, and a GAN-based evaluation harness.
+            Designed to improve factual consistency and reduce hallucination in generated captions.
           </p>
         </div>
         <div class="project-stack">
-          Python<br>
-          TF-IDF / Cosine<br>
-          Retrieval / Ranking
+          PyTorch<br>ViT<br>Claude API<br>GAN
         </div>
       </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · TICKET → RETRIEVAL → CONTEXT → DECISION</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 430" role="img" aria-label="Customer Support Intelligence architecture">
-          <defs>
-            <marker id="sArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="45" y="55" width="170" height="76" rx="3"/>
-          <text class="arch-title" x="68" y="84">TICKET</text>
-          <text class="arch-copy" x="68" y="108">TEXT INPUT</text>
-
-          <rect class="arch-box" x="280" y="55" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="303" y="84">PREPROCESS</text>
-          <text class="arch-copy" x="303" y="108">NORMALIZE / CLEAN</text>
-
-          <rect class="arch-box" x="525" y="55" width="200" height="76" rx="3"/>
-          <text class="arch-title" x="548" y="84">RETRIEVAL</text>
-          <text class="arch-copy" x="548" y="108">TF-IDF / COSINE</text>
-
-          <rect class="arch-box" x="790" y="55" width="200" height="76" rx="3"/>
-          <text class="arch-title" x="813" y="84">RELATED CASES</text>
-          <text class="arch-copy" x="813" y="108">RANKED RESULTS</text>
-
-          <rect class="arch-box" x="525" y="270" width="200" height="76" rx="3"/>
-          <text class="arch-title" x="548" y="299">ACCOUNT CONTEXT</text>
-          <text class="arch-copy" x="548" y="323">STRUCTURED DATA</text>
-
-          <rect class="arch-box" x="790" y="270" width="200" height="76" rx="3"/>
-          <text class="arch-title" x="813" y="299">SUPPORT OUTPUT</text>
-          <text class="arch-copy" x="813" y="323">DECISION SUPPORT</text>
-
-          <path class="flow" marker-end="url(#sArrow)" d="M215 93H280"/>
-          <path class="flow" marker-end="url(#sArrow)" d="M460 93H525"/>
-          <path class="flow" marker-end="url(#sArrow)" d="M725 93H790"/>
-          <path class="flow-soft" marker-end="url(#sArrow)" d="M625 131V270"/>
-          <path class="flow" marker-end="url(#sArrow)" d="M725 308H790"/>
-          <path class="flow-soft" marker-end="url(#sArrow)" d="M890 131V270"/>
-        </svg>
-      </div>
-
       <div class="project-bottom">
-        <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">500</span><span class="project-fact-label">Synthetic support tickets</span></div>
-            <div class="project-fact"><span class="project-fact-value">50</span><span class="project-fact-label">Structured customer accounts</span></div>
-            <div class="project-fact"><span class="project-fact-value">TF-IDF</span><span class="project-fact-label">Sparse text representation</span></div>
-            <div class="project-fact"><span class="project-fact-value">14/14</span><span class="project-fact-label">Workflow checks</span></div>
-          </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/Customer-Support-Intelligence-Platform" target="_blank" rel="noopener">View on GitHub →</a>
+        <div class="project-facts">
+          <div class="project-fact"><span class="project-fact-value">88%</span><span class="project-fact-label">Caption quality score</span></div>
+          <div class="project-fact"><span class="project-fact-value">94%</span><span class="project-fact-label">Evaluation agreement</span></div>
+          <div class="project-fact"><span class="project-fact-value">5k+</span><span class="project-fact-label">Video samples processed</span></div>
+          <div class="project-fact"><span class="project-fact-value">2.3s</span><span class="project-fact-label">Avg generation time</span></div>
         </div>
-        <div class="project-tools">
-          <span class="tool">Python</span><span class="tool">TF-IDF</span><span class="tool">Cosine Similarity</span>
-          <span class="tool">Retrieval</span><span class="tool">Ranking</span>
+        <div>
+          <div class="project-tools">
+            <span class="tool">Vision Transformer</span>
+            <span class="tool">LLM APIs</span>
+            <span class="tool">GAN Evaluation</span>
+            <span class="tool">BLEU/METEOR</span>
+          </div>
+          <a href="https://github.com/Ramkumar64" class="project-link">View on GitHub →</a>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- VISION -->
-    <article class="project project-ai reveal">
+    <div class="project project-health">
       <div class="project-top">
         <div>
-          <div class="project-category">Generative AI · Multimodal</div>
-          <h3 class="project-title">AI Video Captioning System</h3>
+          <div class="project-category">Medical AI</div>
+          <h3 class="project-title">Glaucoma Prediction</h3>
           <p class="project-description">
-            Video captioning pipeline connecting a visual encoder with sequence modeling and
-            a GPT-based decoder, with an evaluation layer for caption quality.
+            B.Tech thesis on fundus image analysis using EfficientNet-B0 and Grad-CAM explainability.
+            Built to support diagnosis through interpretable visual heatmaps and medical image classification.
           </p>
         </div>
         <div class="project-stack">
-          Python / PyTorch<br>
-          ViT / GPT Decoder<br>
-          GAN / Claude API
+          Python<br>EfficientNet<br>Grad-CAM<br>TensorFlow
         </div>
       </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · VIDEO → VISUAL FEATURES → SEQUENCE → CAPTION</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 430" role="img" aria-label="AI Video Captioning architecture">
-          <defs>
-            <marker id="vArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="35" y="55" width="155" height="76" rx="3"/>
-          <text class="arch-title" x="58" y="84">VIDEO</text>
-          <text class="arch-copy" x="58" y="108">FRAME EXTRACTION</text>
-
-          <rect class="arch-box" x="235" y="55" width="175" height="76" rx="3"/>
-          <text class="arch-title" x="258" y="84">ViT / CNN</text>
-          <text class="arch-copy" x="258" y="108">VISUAL FEATURES</text>
-
-          <rect class="arch-box" x="455" y="55" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="478" y="84">SEQUENCE MODEL</text>
-          <text class="arch-copy" x="478" y="108">TEMPORAL FEATURES</text>
-
-          <rect class="arch-box" x="680" y="55" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="703" y="84">GPT DECODER</text>
-          <text class="arch-copy" x="703" y="108">CAPTION GENERATION</text>
-
-          <rect class="arch-box" x="905" y="55" width="150" height="76" rx="3"/>
-          <text class="arch-title" x="928" y="84">CAPTION</text>
-          <text class="arch-copy" x="928" y="108">TEXT OUTPUT</text>
-
-          <rect class="arch-box" x="455" y="270" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="478" y="299">EVALUATION</text>
-          <text class="arch-copy" x="478" y="323">BLEU / QUALITY</text>
-
-          <rect class="arch-box" x="680" y="270" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="703" y="299">ADVERSARIAL CHECK</text>
-          <text class="arch-copy" x="703" y="323">GAN DISCRIMINATOR</text>
-
-          <path class="flow" marker-end="url(#vArrow)" d="M190 93H235"/>
-          <path class="flow" marker-end="url(#vArrow)" d="M410 93H455"/>
-          <path class="flow" marker-end="url(#vArrow)" d="M635 93H680"/>
-          <path class="flow" marker-end="url(#vArrow)" d="M860 93H905"/>
-          <path class="flow-soft" marker-end="url(#vArrow)" d="M770 131V215H545V270"/>
-          <path class="flow-soft" marker-end="url(#vArrow)" d="M980 131V215H770V270"/>
-          <path class="flow-soft" marker-end="url(#vArrow)" d="M635 308H680"/>
-        </svg>
-      </div>
-
       <div class="project-bottom">
+        <div class="project-facts">
+          <div class="project-fact"><span class="project-fact-value">95%</span><span class="project-fact-label">Sensitivity</span></div>
+          <div class="project-fact"><span class="project-fact-value">92%</span><span class="project-fact-label">Specificity</span></div>
+          <div class="project-fact"><span class="project-fact-value">1200+</span><span class="project-fact-label">Fundus images analyzed</span></div>
+          <div class="project-fact"><span class="project-fact-value">Interpretable</span><span class="project-fact-label">Explainable AI output</span></div>
+        </div>
         <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">ViT</span><span class="project-fact-label">Visual encoder</span></div>
-            <div class="project-fact"><span class="project-fact-value">GPT</span><span class="project-fact-label">Language decoder</span></div>
-            <div class="project-fact"><span class="project-fact-value">3</span><span class="project-fact-label">Documented evaluation iterations</span></div>
-            <div class="project-fact"><span class="project-fact-value">BLEU</span><span class="project-fact-label">Caption quality metric</span></div>
+          <div class="project-tools">
+            <span class="tool">Medical Imaging</span>
+            <span class="tool">Grad-CAM</span>
+            <span class="tool">EfficientNet</span>
+            <span class="tool">Interpretability</span>
           </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/Real-time-video-captioning" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-        <div class="project-tools">
-          <span class="tool">Python</span><span class="tool">ViT</span><span class="tool">GPT Decoder</span>
-          <span class="tool">GAN</span><span class="tool">PyTorch</span><span class="tool">Claude API</span>
+          <a href="https://github.com/Ramkumar64" class="project-link">View on GitHub →</a>
         </div>
       </div>
-    </article>
+    </div>
 
-    <!-- GLAUCOMA -->
-    <article class="project project-health reveal">
-      <div class="project-top">
-        <div>
-          <div class="project-category">Healthcare AI · B.Tech Thesis</div>
-          <h3 class="project-title">Glaucoma Progression Prediction</h3>
-          <p class="project-description">
-            EfficientNet-B0 pipeline using the GRAPE dataset, combining retinal imaging with
-            clinical metadata and Grad-CAM for model interpretability.
-          </p>
-        </div>
-        <div class="project-stack">
-          Python / PyTorch<br>
-          EfficientNet-B0<br>
-          Grad-CAM / GRAPE
-        </div>
-      </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · IMAGE + CLINICAL DATA → FUSION → FORECAST</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 430" role="img" aria-label="Glaucoma Progression Prediction architecture">
-          <defs>
-            <marker id="gArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="45" y="50" width="185" height="76" rx="3"/>
-          <text class="arch-title" x="68" y="79">RETINAL IMAGE</text>
-          <text class="arch-copy" x="68" y="103">GRAPE / OCT / RNFL</text>
-
-          <rect class="arch-box" x="45" y="275" width="185" height="76" rx="3"/>
-          <text class="arch-title" x="68" y="304">CLINICAL DATA</text>
-          <text class="arch-copy" x="68" y="328">METADATA FEATURES</text>
-
-          <rect class="arch-box" x="310" y="50" width="195" height="76" rx="3"/>
-          <text class="arch-title" x="333" y="79">EFFICIENTNET-B0</text>
-          <text class="arch-copy" x="333" y="103">IMAGE EMBEDDING</text>
-
-          <rect class="arch-box" x="310" y="275" width="195" height="76" rx="3"/>
-          <text class="arch-title" x="333" y="304">CLINICAL ENCODER</text>
-          <text class="arch-copy" x="333" y="328">NORMALIZED FEATURES</text>
-
-          <rect class="arch-box" x="600" y="145" width="195" height="76" rx="3"/>
-          <text class="arch-title" x="623" y="174">FEATURE FUSION</text>
-          <text class="arch-copy" x="623" y="198">IMAGE + CLINICAL</text>
-
-          <rect class="arch-box" x="880" y="145" width="175" height="76" rx="3"/>
-          <text class="arch-title" x="903" y="174">FORECAST</text>
-          <text class="arch-copy" x="903" y="198">PROGRESSION</text>
-
-          <rect class="arch-box" x="880" y="275" width="175" height="76" rx="3"/>
-          <text class="arch-title" x="903" y="304">GRAD-CAM</text>
-          <text class="arch-copy" x="903" y="328">EXPLAINABILITY</text>
-
-          <path class="flow" marker-end="url(#gArrow)" d="M230 88H310"/>
-          <path class="flow" marker-end="url(#gArrow)" d="M230 313H310"/>
-          <path class="flow" marker-end="url(#gArrow)" d="M505 88H550V183H600"/>
-          <path class="flow" marker-end="url(#gArrow)" d="M505 313H550V183H600"/>
-          <path class="flow" marker-end="url(#gArrow)" d="M795 183H880"/>
-          <path class="flow-soft" marker-end="url(#gArrow)" d="M968 221V275"/>
-        </svg>
-      </div>
-
-      <div class="project-bottom">
-        <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">3.613</span><span class="project-fact-label">Recorded MAE</span></div>
-            <div class="project-fact"><span class="project-fact-value">0.443</span><span class="project-fact-label">Recorded R²</span></div>
-            <div class="project-fact"><span class="project-fact-value">3</span><span class="project-fact-label">Model families benchmarked</span></div>
-            <div class="project-fact"><span class="project-fact-value">GRAPE</span><span class="project-fact-label">Longitudinal dataset</span></div>
-          </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/glaucoma-progression-prediction" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-        <div class="project-tools">
-          <span class="tool">Python</span><span class="tool">EfficientNet-B0</span><span class="tool">PyTorch</span>
-          <span class="tool">Grad-CAM</span><span class="tool">GRAPE</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- CHESS -->
-    <article class="project project-ai reveal">
-      <div class="project-top">
-        <div>
-          <div class="project-category">Algorithms · DSA</div>
-          <h3 class="project-title">AI Chess Engine — Voice Assisted</h3>
-          <p class="project-description">
-            Chess engine using Minimax with Alpha-Beta pruning, custom move evaluation,
-            a Pygame interface and voice-assisted input/output.
-          </p>
-        </div>
-        <div class="project-stack">
-          Python / Java / C++<br>
-          Minimax / Alpha-Beta<br>
-          Pygame / SpeechRecognition
-        </div>
-      </div>
-
-      <div class="arch-label">SYSTEM ARCHITECTURE · INPUT → SEARCH → EVALUATION → MOVE</div>
-      <div class="arch-frame">
-        <svg viewBox="0 0 1100 330" role="img" aria-label="AI Chess Engine architecture">
-          <defs>
-            <marker id="chArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-              <path d="M0 0 L10 5 L0 10z" fill="#ddd"/>
-            </marker>
-          </defs>
-
-          <rect class="arch-box" x="50" y="90" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="73" y="119">PLAYER INPUT</text>
-          <text class="arch-copy" x="73" y="143">VOICE / PYGAME</text>
-
-          <rect class="arch-box" x="310" y="90" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="333" y="119">MOVE GENERATOR</text>
-          <text class="arch-copy" x="333" y="143">LEGAL MOVES</text>
-
-          <rect class="arch-box" x="570" y="90" width="180" height="76" rx="3"/>
-          <text class="arch-title" x="593" y="119">MINIMAX</text>
-          <text class="arch-copy" x="593" y="143">ALPHA-BETA PRUNING</text>
-
-          <rect class="arch-box" x="830" y="90" width="210" height="76" rx="3"/>
-          <text class="arch-title" x="853" y="119">EVALUATION</text>
-          <text class="arch-copy" x="853" y="143">HEURISTICS / BEST MOVE</text>
-
-          <path class="flow" marker-end="url(#chArrow)" d="M230 128H310"/>
-          <path class="flow" marker-end="url(#chArrow)" d="M490 128H570"/>
-          <path class="flow" marker-end="url(#chArrow)" d="M750 128H830"/>
-          <path class="flow-soft" marker-end="url(#chArrow)" d="M935 166V235H140V166"/>
-        </svg>
-      </div>
-
-      <div class="project-bottom">
-        <div>
-          <div class="project-facts">
-            <div class="project-fact"><span class="project-fact-value">60%</span><span class="project-fact-label">Search-space reduction target</span></div>
-            <div class="project-fact"><span class="project-fact-value">3</span><span class="project-fact-label">Implementation languages</span></div>
-          </div>
-          <a class="project-link" href="https://github.com/Ramkumar64/AI-based-Voice-assisted-Chess-Engine" target="_blank" rel="noopener">View on GitHub →</a>
-        </div>
-        <div class="project-tools">
-          <span class="tool">Python</span><span class="tool">Java</span><span class="tool">C++</span>
-          <span class="tool">Minimax</span><span class="tool">Alpha-Beta</span><span class="tool">Pygame</span>
-        </div>
-      </div>
-    </article>
   </div>
 </section>
 
@@ -1516,37 +1143,35 @@ footer{
 <section class="section" id="experience">
   <div class="container reveal">
     <div class="section-kicker">WHERE I HAVE WORKED</div>
-    <h2 class="section-title">Experience &amp; Education</h2>
+    <h2 class="section-title">Experience</h2>
 
     <div class="experience-list">
       <div class="experience-item">
-        <div class="experience-date">JUN – AUG<br>2024</div>
+        <div class="experience-date">Sep 2024 - Present</div>
         <div>
-          <div class="experience-org">EDGEMATRIX INC</div>
-          <div class="experience-role">AI &amp; ML Engineering Intern</div>
+          <div class="experience-org">EDGEMATRIX Inc</div>
+          <div class="experience-role">AI/ML Engineer Intern</div>
           <ul class="experience-bullets">
-            <li>Reduced real-time model inference latency by <strong>20%</strong> through INT8 quantisation and pipeline restructuring using PyTorch and TensorFlow.</li>
-            <li>Cut dataset preparation time by <strong>40%</strong> by building automated preprocessing workflows in Python.</li>
-            <li>Built and tested CNN, Transformer, and RNN architectures for computer vision deployment on edge hardware.</li>
-            <li>Worked in Agile sprints, participated in code reviews, and contributed to deployment testing.</li>
-            <li>Generated performance monitoring dashboards using Power BI and Grafana.</li>
+            <li>Improved inference pipelines by 20% through optimized batching, model execution flow, and deployment tuning.</li>
+            <li>Automated dataset preparation, cutting manual preprocessing work by 40%.</li>
+            <li>Built evaluation frameworks to support model benchmarking and deployment confidence for production use cases.</li>
           </ul>
         </div>
-        <div class="experience-side">AI / ML<br>ENGINEERING</div>
+        <div class="experience-side">Chennai, India</div>
       </div>
 
       <div class="experience-item">
-        <div class="experience-date">2022 –<br>2026</div>
+        <div class="experience-date">Jan 2024 - May 2024</div>
         <div>
-          <div class="experience-org">MADRAS INSTITUTE OF TECHNOLOGY, ANNA UNIVERSITY</div>
-          <div class="experience-role">B.Tech — Artificial Intelligence &amp; Data Science</div>
+          <div class="experience-org">MIT Anna University</div>
+          <div class="experience-role">Project Lead - AI Lab</div>
           <ul class="experience-bullets">
-            <li>CGPA: 8.0 · Graduated April 2026 · No backlogs.</li>
-            <li>Event Coordinator — Tekhora Technical Fest · 500+ participants.</li>
-            <li>Secretary — PD Association · 60 members.</li>
+            <li>Led a team of 4 on computer vision and LLM projects with real-world datasets.</li>
+            <li>Supported research in medical image analysis and presented work in college innovation forums.</li>
+            <li>Mentored peers on ML systems design, evaluation, and production-ready engineering practices.</li>
           </ul>
         </div>
-        <div class="experience-side">CHENNAI<br>ANNA UNIVERSITY</div>
+        <div class="experience-side">Chennai, India</div>
       </div>
     </div>
   </div>
@@ -1560,29 +1185,30 @@ footer{
 
     <div class="cert-list">
       <div class="cert">
-        <span class="cert-dot"></span>
-        <div><div class="cert-name">Fundamentals of Deep Learning</div><div class="cert-org">NVIDIA DLI</div></div>
+        <div class="cert-dot"></div>
+        <div>
+          <div class="cert-name">Fundamentals of Accelerated Computing with CUDA C/C++</div>
+          <div class="cert-org">NVIDIA Deep Learning Institute</div>
+        </div>
         <div class="cert-year">2024</div>
       </div>
+
       <div class="cert">
-        <span class="cert-dot"></span>
-        <div><div class="cert-name">Jetson Nano — Robot Simulation &amp; Deep Learning</div><div class="cert-org">NVIDIA DLI</div></div>
+        <div class="cert-dot"></div>
+        <div>
+          <div class="cert-name">Accelerating CUDA C++ Applications with NVIDIA Tools</div>
+          <div class="cert-org">NVIDIA Deep Learning Institute</div>
+        </div>
         <div class="cert-year">2024</div>
       </div>
+
       <div class="cert">
-        <span class="cert-dot blue"></span>
-        <div><div class="cert-name">Spring REST</div><div class="cert-org">Infosys Springboard</div></div>
-        <div class="cert-year">NOV 2025</div>
-      </div>
-      <div class="cert">
-        <span class="cert-dot blue"></span>
-        <div><div class="cert-name">Spring 5 Basics with Spring Boot</div><div class="cert-org">Infosys Springboard</div></div>
-        <div class="cert-year">NOV 2025</div>
-      </div>
-      <div class="cert">
-        <span class="cert-dot blue"></span>
-        <div><div class="cert-name">Spring Data JPA with Boot</div><div class="cert-org">Infosys Springboard</div></div>
-        <div class="cert-year">NOV 2025</div>
+        <div class="cert-dot blue"></div>
+        <div>
+          <div class="cert-name">B.Tech in Artificial Intelligence &amp; Data Science</div>
+          <div class="cert-org">MIT Anna University (CGPA: 8.0)</div>
+        </div>
+        <div class="cert-year">2026</div>
       </div>
     </div>
   </div>
@@ -1590,47 +1216,33 @@ footer{
 
 <!-- CONTACT -->
 <section class="section contact" id="contact">
-  <div class="container contact-inner reveal">
-    <div class="section-kicker">GET IN TOUCH</div>
+  <div class="container reveal">
+    <div class="contact-inner">
+      <h2 class="contact-heading">Let's work together <span>on something meaningful.</span></h2>
+      <p class="contact-copy">
+        I’m always interested in hard problems — from production ML systems and distributed infrastructure to real-world product engineering.
+        If you’re building something ambitious, I’d love to connect.
+      </p>
+      <a href="mailto:ramaravind21135@gmail.com" class="contact-email">ramaravind21135@gmail.com</a>
 
-    <h2 class="contact-heading">
-      Let's build<br>
-      <span>something real.</span>
-    </h2>
-
-    <p class="contact-copy">
-      I am actively looking for full-time roles in software engineering, AI/ML,
-      or full-stack development. Immediately available and open to Chennai,
-      Bangalore, Hyderabad, and remote.
-    </p>
-
-    <a class="contact-email" href="mailto:ramaravind21135@gmail.com">
-      ramaravind21135@gmail.com
-    </a>
-
-    <div class="contact-meta">
-      <div class="contact-meta-item">
-        <span class="contact-meta-label">EMAIL</span>
-        <span class="contact-meta-value">ramaravind21135@gmail.com</span>
+      <div class="contact-meta">
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">Email</span>
+          <span class="contact-meta-value"><a href="mailto:ramaravind21135@gmail.com">ramaravind21135@gmail.com</a></span>
+        </div>
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">LinkedIn</span>
+          <span class="contact-meta-value"><a href="https://linkedin.com/in/ram-kumar-r-01951636a" target="_blank" rel="noopener">Profile</a></span>
+        </div>
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">GitHub</span>
+          <span class="contact-meta-value"><a href="https://github.com/Ramkumar64" target="_blank" rel="noopener">Ramkumar64</a></span>
+        </div>
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">Location</span>
+          <span class="contact-meta-value">Chennai, India • Remote Open</span>
+        </div>
       </div>
-      <div class="contact-meta-item">
-        <span class="contact-meta-label">LINKEDIN</span>
-        <span class="contact-meta-value">ram-kumar-r-01951636a</span>
-      </div>
-      <div class="contact-meta-item">
-        <span class="contact-meta-label">GITHUB</span>
-        <span class="contact-meta-value">github.com/Ramkumar64</span>
-      </div>
-      <div class="contact-meta-item">
-        <span class="contact-meta-label">LOCATION</span>
-        <span class="contact-meta-value">Chennai · Bangalore · Hyderabad · Remote</span>
-      </div>
-    </div>
-
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="mailto:ramaravind21135@gmail.com">Send Email →</a>
-      <a class="btn" href="mailto:ramaravind21135@gmail.com?subject=Resume%20Request%20%E2%80%94%20Ramkumar%20R">Request Resume</a>
-      <a class="btn" href="https://github.com/Ramkumar64" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
@@ -1638,81 +1250,54 @@ footer{
 </main>
 
 <footer>
-  <span>RAMKUMAR R · CHENNAI · 2026</span>
-  <span>AI · SOFTWARE · SYSTEMS</span>
+  <div>© 2026 Ramkumar R</div>
+  <div>AI Engineer • Full-Stack Developer</div>
 </footer>
 
 <script>
-(() => {
-  const root = document.documentElement;
-  const readout = document.getElementById("readout");
+// Scroll tracking
+const updateScroll = () => {
+  const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) || 0;
+  document.documentElement.style.setProperty('--scroll', scrollPercent);
+  document.getElementById('readout').textContent = `SCROLL ${Math.round(scrollPercent * 100).toString().padStart(3, '0')}%`;
+};
 
-  /* Scroll drives the cinematic environment, not giant typography. */
-  function updateScroll(){
-    const top = window.scrollY || 0;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const progress = Math.min(1, Math.max(0, top / max));
-    root.style.setProperty("--scroll", progress.toFixed(4));
-    readout.textContent = "SCROLL " + String(Math.round(progress * 100)).padStart(3,"0") + "%";
-  }
+// Mouse tracking
+const updateMouse = (e) => {
+  const xPercent = (e.clientX / window.innerWidth - 0.5) * 2;
+  const yPercent = (e.clientY / window.innerHeight - 0.5) * 2;
+  document.documentElement.style.setProperty('--mx', xPercent);
+  document.documentElement.style.setProperty('--my', yPercent);
+};
 
-  let ticking = false;
-  window.addEventListener("scroll", () => {
-    if(!ticking){
-      requestAnimationFrame(() => {
-        updateScroll();
-        ticking = false;
-      });
-      ticking = true;
+// Intersection observer for reveal animations
+const revealElements = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
     }
-  }, {passive:true});
-  updateScroll();
-
-  /* Subtle mouse parallax. */
-  window.addEventListener("pointermove", e => {
-    root.style.setProperty("--mx", ((e.clientX / innerWidth - .5) * 2).toFixed(3));
-    root.style.setProperty("--my", ((e.clientY / innerHeight - .5) * 2).toFixed(3));
-  }, {passive:true});
-
-  /* Changing role beneath the name. */
-  const role = document.getElementById("heroRole");
-  const roles = ["AI", "Software Engineer", "Backend Engineer", "ML Engineer", "Computer Vision"];
-  let roleIndex = 0;
-
-  if(role){
-    setInterval(() => {
-      role.classList.add("swap");
-      setTimeout(() => {
-        roleIndex = (roleIndex + 1) % roles.length;
-        role.textContent = roles[roleIndex];
-        role.classList.remove("swap");
-      }, 300);
-    }, 2300);
-  }
-
-  /* Reveal content as it enters the viewport. */
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.08,rootMargin:"0px 0px -7% 0px"});
-
-  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-  /* Smooth anchor navigation. */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", e => {
-      const target = document.querySelector(link.getAttribute("href"));
-      if(target){
-        e.preventDefault();
-        target.scrollIntoView({behavior:"smooth",block:"start"});
-      }
-    });
   });
-})();
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => observer.observe(el));
+
+// Role rotation
+const roles = ['AI Engineer', 'Full-Stack Developer', 'ML Systems Builder'];
+let roleIndex = 0;
+const roleEl = document.getElementById('heroRole');
+
+setInterval(() => {
+  roleIndex = (roleIndex + 1) % roles.length;
+  roleEl.textContent = roles[roleIndex];
+}, 3000);
+
+// Event listeners
+window.addEventListener('scroll', updateScroll, { passive: true });
+window.addEventListener('mousemove', updateMouse, { passive: true });
+
+// Initial calls
+updateScroll();
 </script>
 
 </body>
