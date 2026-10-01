@@ -45,75 +45,41 @@ button{font:inherit}
 ::selection{background:rgba(118,102,255,.35);color:#fff}
 
 /* =========================================================
-   CINEMATIC WORLD
+   CINEMATIC BACKGROUND
    ========================================================= */
 .cinema{
   position:fixed;
   inset:0;
-  z-index:-20;
+  z-index:0;
   overflow:hidden;
   pointer-events:none;
-  background:#050507;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,4,12,.20),
+      rgba(3,4,10,.04) 38%,
+      rgba(2,3,8,.35) 100%
+    ),
+    radial-gradient(
+      ellipse at 25% 25%,
+      rgba(125,95,255,.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      ellipse at 75% 85%,
+      rgba(100,75,200,.08),
+      transparent 35%
+    ),
+    url("./download.jpg") center center / cover no-repeat;
 }
 
 .cinema-base{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(ellipse at 75% 18%,rgba(74,68,120,.11),transparent 32%),
-    radial-gradient(ellipse at 15% 72%,rgba(45,50,85,.08),transparent 34%),
-    linear-gradient(135deg,#050507 0%,#07070b 48%,#050507 100%);
-}
-
-.moon{
-  position:absolute;
-  width:min(34vw,500px);
-  aspect-ratio:1;
-  left:calc(76% + var(--mx) * 9px);
-  top:calc(25% + var(--my) * 7px);
-  transform:
-    translate(-50%,-50%)
-    translate3d(
-      calc(var(--scroll) * -170px),
-      calc(var(--scroll) * 250px),
-      0
-    )
-    scale(calc(.94 + var(--scroll) * .18));
-  border-radius:50%;
-  background:url("download.jpg") center/cover no-repeat;
-  filter:grayscale(1) contrast(1.15) brightness(.78);
-  opacity:.40;
-  mix-blend-mode:screen;
-  box-shadow:0 0 80px rgba(220,220,255,.07),0 0 180px rgba(150,145,255,.035);
-  transition:transform .2s linear;
-}
-
-.moon::after{
-  content:"";
-  position:absolute;
-  inset:-4%;
-  border-radius:50%;
-  background:radial-gradient(circle at 45% 40%,transparent 50%,rgba(0,0,0,.32) 73%,rgba(0,0,0,.86) 100%);
-}
-
-.eclipse{
-  position:absolute;
-  width:min(32vw,470px);
-  aspect-ratio:1;
-  left:calc(76% + 18px + var(--mx) * 10px);
-  top:calc(25% + var(--my) * 8px);
-  transform:
-    translate(-50%,-50%)
-    translate3d(
-      calc(var(--scroll) * -110px),
-      calc(var(--scroll) * 280px),
-      0
-    );
-  border-radius:50%;
-  background:#020203;
-  opacity:.16;
-  box-shadow:0 0 50px rgba(0,0,0,.9),0 0 130px rgba(0,0,0,.65);
-  transition:transform .2s linear;
+    radial-gradient(ellipse at 75% 18%,rgba(74,68,120,.06),transparent 32%),
+    radial-gradient(ellipse at 15% 72%,rgba(45,50,85,.04),transparent 34%);
+  pointer-events:none;
 }
 
 .ambient{
@@ -121,28 +87,31 @@ button{font:inherit}
   inset:-20%;
   background:
     radial-gradient(ellipse at 75% 20%,rgba(118,102,255,.08),transparent 30%),
-    radial-gradient(ellipse at 25% 70%,rgba(255,255,255,.035),transparent 35%);
-  filter:blur(40px);
-  transform:translate(calc(var(--mx) * -12px),calc(var(--my) * -9px));
+    radial-gradient(ellipse at 25% 70%,rgba(255,255,255,.02),transparent 35%);
+  filter:blur(60px);
+  transform:translate(calc(var(--mx) * -8px),calc(var(--my) * -6px));
+  pointer-events:none;
 }
 
 .fog{
   position:absolute;
   inset:-15%;
-  opacity:.52;
-  filter:blur(34px);
+  opacity:.25;
+  filter:blur(50px);
   background:
-    radial-gradient(ellipse at 18% 50%,rgba(255,255,255,.035),transparent 35%),
-    radial-gradient(ellipse at 70% 65%,rgba(100,105,155,.045),transparent 38%),
-    radial-gradient(ellipse at 48% 90%,rgba(255,255,255,.022),transparent 38%);
+    radial-gradient(ellipse at 18% 50%,rgba(255,255,255,.02),transparent 35%),
+    radial-gradient(ellipse at 70% 65%,rgba(100,105,155,.03),transparent 38%),
+    radial-gradient(ellipse at 48% 90%,rgba(255,255,255,.01),transparent 38%);
+  pointer-events:none;
 }
 
 .grain{
   position:absolute;
   inset:-50%;
-  opacity:.04;
+  opacity:.02;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' seed='0'/%3E%3C/filter%3E%3Crect fill='%23000' width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain .25s steps(2) infinite;
+  pointer-events:none;
 }
 @keyframes grain{
   0%{transform:translate(0,0)}
@@ -151,10 +120,12 @@ button{font:inherit}
   75%{transform:translate(1%,1%)}
   100%{transform:translate(0,0)}
 }
+
 .vignette{
   position:absolute;
   inset:0;
-  background:radial-gradient(ellipse at center,transparent 28%,rgba(0,0,0,.2) 70%,rgba(0,0,0,.75) 100%);
+  background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.15) 60%,rgba(0,0,0,.4) 100%);
+  pointer-events:none;
 }
 
 /* =========================================================
@@ -181,13 +152,13 @@ button{font:inherit}
   top:0;
   left:0;
   width:100%;
-  z-index:80;
+  z-index:90;
   padding:22px max(22px,calc((100vw - var(--max))/2));
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:linear-gradient(180deg,rgba(5,5,7,.75),transparent);
-  backdrop-filter:blur(4px);
+  background:linear-gradient(180deg,rgba(5,5,7,.65),transparent);
+  backdrop-filter:blur(8px);
 }
 .brand{
   font-size:14px;
@@ -211,7 +182,7 @@ button{font:inherit}
   position:fixed;
   right:22px;
   bottom:25px;
-  z-index:70;
+  z-index:85;
   color:#626474;
   font:9px ui-monospace,SFMono-Regular,Menlo,monospace;
   letter-spacing:.14em;
@@ -222,6 +193,12 @@ button{font:inherit}
 /* =========================================================
    LAYOUT
    ========================================================= */
+main,
+footer{
+  position:relative;
+  z-index:1;
+}
+
 .container{
   width:min(var(--max),calc(100% - 44px));
   margin:auto;
@@ -229,7 +206,11 @@ button{font:inherit}
 .section{
   position:relative;
   padding:115px 0;
+  background:rgba(5,6,14,.18);
+  backdrop-filter:blur(12px) saturate(125%);
+  border-top:1px solid rgba(255,255,255,.04);
 }
+
 .section-kicker{
   display:flex;
   align-items:center;
@@ -262,6 +243,8 @@ button{font:inherit}
   align-items:center;
   padding-top:145px;
   padding-bottom:90px;
+  background:transparent;
+  border-top:none;
 }
 .hero-grid{
   display:grid;
@@ -357,6 +340,7 @@ button{font:inherit}
   font-size:13px;
   font-weight:600;
   transition:.25s ease;
+  cursor:pointer;
 }
 .btn:hover{border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
 .btn-primary{background:var(--accent);border-color:var(--accent)}
@@ -663,6 +647,7 @@ button{font:inherit}
   color:#9092a1;
   font-size:13px;
   line-height:1.7;
+  list-style:disc;
 }
 .experience-bullets li+li{margin-top:7px}
 .experience-side{
@@ -804,8 +789,6 @@ footer{
   .experience-item{grid-template-columns:95px 1fr}
   .experience-side{grid-column:2;text-align:left}
   .contact-meta{grid-template-columns:1fr 1fr}
-  .moon{width:52vw;left:78%;top:18%;opacity:.28}
-  .eclipse{width:49vw;left:78%;top:18%}
 }
 
 @media(max-width:600px){
@@ -827,8 +810,6 @@ footer{
   .experience-side{grid-column:auto}
   .contact-meta{grid-template-columns:1fr 1fr}
   footer{flex-direction:column;gap:10px}
-  .moon{width:75vw;left:92%;top:16%;opacity:.2}
-  .eclipse{width:71vw;left:92%;top:16%}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -844,10 +825,8 @@ footer{
 
 <body>
 
-<div class="cinema" aria-hidden="true">
+<div class="cinema">
   <div class="cinema-base"></div>
-  <div class="moon"></div>
-  <div class="eclipse"></div>
   <div class="ambient"></div>
   <div class="fog"></div>
   <div class="grain"></div>
@@ -1220,8 +1199,8 @@ footer{
     <div class="contact-inner">
       <h2 class="contact-heading">Let's work together <span>on something meaningful.</span></h2>
       <p class="contact-copy">
-        I’m always interested in hard problems — from production ML systems and distributed infrastructure to real-world product engineering.
-        If you’re building something ambitious, I’d love to connect.
+        I'm always interested in hard problems — from production ML systems and distributed infrastructure to real-world product engineering.
+        If you're building something ambitious, I'd love to connect.
       </p>
       <a href="mailto:ramaravind21135@gmail.com" class="contact-email">ramaravind21135@gmail.com</a>
 
@@ -1262,14 +1241,6 @@ const updateScroll = () => {
   document.getElementById('readout').textContent = `SCROLL ${Math.round(scrollPercent * 100).toString().padStart(3, '0')}%`;
 };
 
-// Mouse tracking
-const updateMouse = (e) => {
-  const xPercent = (e.clientX / window.innerWidth - 0.5) * 2;
-  const yPercent = (e.clientY / window.innerHeight - 0.5) * 2;
-  document.documentElement.style.setProperty('--mx', xPercent);
-  document.documentElement.style.setProperty('--my', yPercent);
-};
-
 // Intersection observer for reveal animations
 const revealElements = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
@@ -1294,7 +1265,6 @@ setInterval(() => {
 
 // Event listeners
 window.addEventListener('scroll', updateScroll, { passive: true });
-window.addEventListener('mousemove', updateMouse, { passive: true });
 
 // Initial calls
 updateScroll();
